@@ -48,7 +48,7 @@ def get_book_info():
 
     title = input("Title:")
     if re.search("^[A-Za-z0-9 ]+$", title) is None: #validates that it has letters (upper and lower), digits and spaces
-        raise ValueError("Invalid Title")
+        raise ValueError("Invalid Title. Must be letters or digits only")
     author = input("Author:")
     if re.search("^[A-Za-z ]+$", author) is None: #validates that it has letters (upper and lower) and spaces
         raise ValueError("Invalid Author")
@@ -56,10 +56,10 @@ def get_book_info():
     if re.search("^\d{4,20}$", isbn) is None: #must have four to twenty digits (inclusive).
         raise ValueError("Invalid ISBN. Must be between 4 and 20 digits")
     year = input("Year:")
-    if re.search("^\d{4}$", year) is None: #must be 4our digits and greater than 1900.
+    if re.search("^\d{4}$", year) is None: #must be 4our digits .
         raise ValueError("Invalid Year. Must be 4 digits only")
     if int(year) < 1900:
-        raise ValueError("Year cannot be less than 1900")
+        raise ValueError("Year cannot be less than 1900") #must be greater than year 1900
     description = input("Description:") #can be any character up to 256 characters in length
     if re.search("^.{,256}$", description) is None:
         raise ValueError("Description must be up to 256 characters long")
